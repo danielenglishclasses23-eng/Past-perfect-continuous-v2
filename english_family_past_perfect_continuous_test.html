@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Family - Past Perfect Continuous Test</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .custom-radio:checked + label {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+            color: #0369a1;
+            font-weight: 600;
+        }
+        .custom-radio:checked + label .radio-circle {
+            border-color: #0284c7;
+            background-color: #0284c7;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Top Header & Branding -->
+    <header class="bg-gradient-to-r from-brand-700 via-brand-600 to-indigo-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Branding Badge -->
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-brand-700 p-3 rounded-2xl shadow-md flex items-center justify-center font-black text-2xl tracking-wider">
+                    <i class="fa-solid fa-graduation-cap text-3xl text-brand-600 mr-2"></i>
+                    <span>English <span class="text-amber-500">Family</span></span>
+                </div>
+            </div>
+
+            <!-- Student Metadata Input & Date -->
+            <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
+                <!-- Date Field -->
+                <div class="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 text-xs sm:text-sm flex items-center space-x-2">
+                    <i class="fa-regular fa-calendar-check text-amber-300"></i>
+                    <span id="currentDateDisplay" class="font-medium text-slate-100">--/--/----</span>
+                </div>
+
+                <!-- Student Name Input -->
+                <div class="relative flex-1 sm:flex-initial min-w-[200px]">
+                    <i class="fa-solid fa-user text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 text-sm"></i>
+                    <input type="text" id="studentName" placeholder="Enter Full Name *" required
+                        class="w-full pl-9 pr-3 py-1.5 rounded-lg text-slate-800 bg-white shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm font-medium">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Progress Bar Header -->
+        <div class="w-full bg-brand-800/40 border-t border-white/10">
+            <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm font-semibold">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-bars-progress text-amber-400"></i>
+                    <span>Progress: <span id="progressText">0 / 15 Answered</span></span>
+                </div>
+                <div class="flex-1 max-w-md bg-slate-200/30 rounded-full h-3 overflow-hidden p-0.5">
+                    <div id="progressBar" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-full rounded-full transition-all duration-300 w-0"></div>
+                </div>
+                <span id="progressPercent" class="text-amber-300 font-bold min-w-[40px] text-right">0%</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full space-y-8">
+
+        <!-- SECTION 1: Introduction -->
+        <section class="bg-white rounded-2xl shadow-md p-6 sm:p-8 border border-slate-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-50 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <div class="flex items-center space-x-3 text-brand-600 mb-3">
+                <i class="fa-solid fa-book-open-reader text-2xl"></i>
+                <h2 class="text-2xl font-bold tracking-tight">Grammar Assessment: Past Perfect Continuous</h2>
+            </div>
+            
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                Welcome to the <strong>English Family</strong> online evaluation system! This exam evaluates your understanding and practical usage of the <strong>Past Perfect Continuous Tense</strong>.
+            </p>
+
+            <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-xl space-y-2 mb-4">
+                <h3 class="font-semibold text-brand-800 text-sm sm:text-base">Grammar Formula Quick Reference:</h3>
+                <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-mono text-brand-900">
+                    <span class="bg-white px-2.5 py-1 rounded border border-brand-200"><strong>[+] Affirmative:</strong> Subject + had been + V-ing</span>
+                    <span class="bg-white px-2.5 py-1 rounded border border-brand-200"><strong>[-] Negative:</strong> Subject + had not (hadn't) been + V-ing</span>
+                    <span class="bg-white px-2.5 py-1 rounded border border-brand-200"><strong>[?] Question:</strong> Had + Subject + been + V-ing?</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-slate-500 border-t pt-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-circle-info text-amber-500"></i>
+                    <span>Complete all <strong>15 questions</strong> and enter your name to unlock your detailed score summary.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: 15 Questions -->
+        <section class="space-y-6" id="questionsContainer">
+            <!-- Questions rendered via JavaScript -->
+        </section>
+
+        <!-- Toast / Warning Message Banner -->
+        <div id="warningBanner" class="hidden bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-md flex items-center justify-between text-amber-800 font-medium">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-xl"></i>
+                <span id="warningText">Please enter your name and complete all 15 questions to unlock results.</span>
+            </div>
+            <button onclick="dismissWarning()" class="text-amber-600 hover:text-amber-800"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+
+        <!-- Submit / Unlock Results Trigger Button -->
+        <div class="text-center py-4" id="submitButtonWrapper">
+            <button onclick="attemptShowResults()" id="checkAnswersBtn"
+                class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-3 mx-auto">
+                <i class="fa-solid fa-lock" id="btnLockIcon"></i>
+                <span>Complete Test & View Results</span>
+            </button>
+        </div>
+
+        <!-- SECTION 3: Final Results & Answer Breakdown (Locked initially) -->
+        <section id="resultsSection" class="hidden bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 space-y-6">
+            
+            <div class="text-center border-b pb-6">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Test Completed</span>
+                <h2 class="text-3xl font-extrabold text-slate-800 mt-2">Test Results Summary</h2>
+                <p class="text-slate-500 text-sm mt-1">Student: <span id="resStudentName" class="font-bold text-slate-700">---</span> | Date: <span id="resDate" class="font-bold text-slate-700">---</span></p>
+                
+                <!-- Score Display Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="text-xs text-slate-500 font-semibold uppercase">Total Correct</span>
+                        <div class="text-3xl font-extrabold text-brand-600 mt-1" id="resCorrectCount">0 / 15</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="text-xs text-slate-500 font-semibold uppercase">Percentage Grade</span>
+                        <div class="text-3xl font-extrabold text-indigo-600 mt-1" id="resPercentage">0%</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="text-xs text-slate-500 font-semibold uppercase">Performance</span>
+                        <div class="text-2xl font-extrabold mt-1" id="resPerformance">---</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons Section -->
+            <div class="bg-brand-50/50 rounded-xl p-5 border border-brand-100 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <!-- Send Email Button -->
+                <button onclick="sendEmailResults()" 
+                    class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Send Answers via Email</span>
+                </button>
+
+                <!-- Copy Summary Button -->
+                <button onclick="copyAnswersToClipboard()" 
+                    class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Copy Answers Summary</span>
+                </button>
+            </div>
+
+            <!-- Detailed Answer Breakdown List -->
+            <div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center space-x-2">
+                    <i class="fa-solid fa-list-check text-brand-600"></i>
+                    <span>Detailed Answer Breakdown</span>
+                </h3>
+
+                <div id="answerBreakdownContainer" class="space-y-4">
+                    <!-- Dynamic Answer Comparison Cards -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 text-center text-xs sm:text-sm">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© <span id="yearSpan"></span> English Family Academy. All rights reserved.</p>
+            <p class="flex items-center space-x-1">
+                <span>Teacher Contact:</span>
+                <a href="mailto:Danielenglishclasses23@gmail.com" class="text-brand-400 hover:underline font-medium">Danielenglishclasses23@gmail.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Copy Confirmation Notification Modal/Toast -->
+    <div id="copyNotification" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none flex items-center space-x-3 z-50">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMessage">Copied to clipboard successfully!</span>
+    </div>
+
+    <!-- Application Script Logic -->
+    <script>
+        // 15 Past Perfect Continuous Questions Data Structure
+        const questionsData = [
+            {
+                id: 1,
+                question: "They ____ for over two hours before the bus finally arrived.",
+                options: [
+                    { key: "A", text: "had been waiting" },
+                    { key: "B", text: "have been waiting" },
+                    { key: "C", text: "had waiting" },
+                    { key: "D", text: "were waited" }
+                ],
+                correct: "A",
+                explanation: "Past Perfect Continuous requires 'had been' + present participle ('waiting') for an action continuing up to a past time."
+            },
+            {
+                id: 2,
+                question: "She was exhausted because she ____ in the garden all morning.",
+                options: [
+                    { key: "A", text: "had worked" },
+                    { key: "B", text: "had been working" },
+                    { key: "C", text: "has been working" },
+                    { key: "D", text: "was worked" }
+                ],
+                correct: "B",
+                explanation: "'had been working' emphasizes the duration of the ongoing activity before a past state (being exhausted)."
+            },
+            {
+                id: 3,
+                question: "How long ____ Spanish before you moved to Madrid?",
+                options: [
+                    { key: "A", text: "have you been studying" },
+                    { key: "B", text: "had you been studying" },
+                    { key: "C", text: "had you study" },
+                    { key: "D", text: "were you studied" }
+                ],
+                correct: "B",
+                explanation: "Question form in Past Perfect Continuous: Had + Subject + been + V-ing."
+            },
+            {
+                id: 4,
+                question: "It ____ for three days, so the ground was completely soaked.",
+                options: [
+                    { key: "A", text: "had been raining" },
+                    { key: "B", text: "had rained" },
+                    { key: "C", text: "was raining" },
+                    { key: "D", text: "has been raining" }
+                ],
+                correct: "A",
+                explanation: "'had been raining' shows the continuous cause of the wet ground in the past."
+            },
+            {
+                id: 5,
+                question: "He failed the test because he ____ attention in class.",
+                options: [
+                    { key: "A", text: "hadn't been paying" },
+                    { key: "B", text: "hasn't been paying" },
+                    { key: "C", text: "hadn't pay" },
+                    { key: "D", text: "wasn't paid" }
+                ],
+                correct: "A",
+                explanation: "Negative form: 'had not (hadn't) been paying' describes continuous non-action prior to past test."
+            },
+            {
+                id: 6,
+                question: "The doctor asked Sarah how long she ____ symptoms.",
+                options: [
+                    { key: "A", text: "had been experiencing" },
+                    { key: "B", text: "has been experiencing" },
+                    { key: "C", text: "was experienced" },
+                    { key: "D", text: "had experience" }
+                ],
+                correct: "A",
+                explanation: "Reported past action duration requires 'had been experiencing'."
+            },
+            {
+                id: 7,
+                question: "We ____ for the company for ten years when it suddenly closed down.",
+                options: [
+                    { key: "A", text: "had been working" },
+                    { key: "B", text: "were working" },
+                    { key: "C", text: "have been working" },
+                    { key: "D", text: "had work" }
+                ],
+                correct: "A",
+                explanation: "Ongoing action interrupted by a past event (closed down) uses Past Perfect Continuous."
+            },
+            {
+                id: 8,
+                question: "Why ____ when I saw you yesterday? Your eyes were red.",
+                options: [
+                    { key: "A", text: "had you been crying" },
+                    { key: "B", text: "have you been crying" },
+                    { key: "C", text: "were you cried" },
+                    { key: "D", text: "had you crying" }
+                ],
+                correct: "A",
+                explanation: "Interrogative form asking for cause of past visible effect: Had + Subject + been + V-ing."
+            },
+            {
+                id: 9,
+                question: "Mark and Lucy ____ each other for very long before they got engaged.",
+                options: [
+                    { key: "A", text: "hadn't been dating" },
+                    { key: "B", text: "weren't dating" },
+                    { key: "C", text: "haven't been dating" },
+                    { key: "D", text: "hadn't date" }
+                ],
+                correct: "A",
+                explanation: "'hadn't been dating' properly expresses negative continuous past duration before engagement."
+            },
+            {
+                id: 10,
+                question: "The musicians ____ for hours before the concert started.",
+                options: [
+                    { key: "A", text: "had been rehearsing" },
+                    { key: "B", text: "have been rehearsing" },
+                    { key: "C", text: "had rehearsing" },
+                    { key: "D", text: "were rehearsed" }
+                ],
+                correct: "A",
+                explanation: "'had been rehearsing' correctly links duration up to the past starting time."
+            },
+            {
+                id: 11,
+                question: "I ____ to open the door for twenty minutes when I realized I had the wrong key.",
+                options: [
+                    { key: "A", text: "had been trying" },
+                    { key: "B", text: "have been trying" },
+                    { key: "C", text: "was tried" },
+                    { key: "D", text: "had try" }
+                ],
+                correct: "A",
+                explanation: "Continuous attempt over a time span before a past realization."
+            },
+            {
+                id: 12,
+                question: "____ all night? You looked so tired this morning.",
+                options: [
+                    { key: "A", text: "Had you been studying" },
+                    { key: "B", text: "Have you been studying" },
+                    { key: "C", text: "Were you study" },
+                    { key: "D", text: "Had you study" }
+                ],
+                correct: "A",
+                explanation: "Question structure for continuous past action leading to a visible state."
+            },
+            {
+                id: 13,
+                question: "The engine was making a strange noise because it ____ properly.",
+                options: [
+                    { key: "A", text: "hadn't been functioning" },
+                    { key: "B", text: "hasn't been functioning" },
+                    { key: "C", text: "wasn't function" },
+                    { key: "D", text: "hadn't function" }
+                ],
+                correct: "A",
+                explanation: "Negative form 'hadn't been functioning' explains prior state continuous malfunction."
+            },
+            {
+                id: 14,
+                question: "She ____ for a new apartment since January before she found one in June.",
+                options: [
+                    { key: "A", text: "had been looking" },
+                    { key: "B", text: "has been looking" },
+                    { key: "C", text: "was looked" },
+                    { key: "D", text: "had looking" }
+                ],
+                correct: "A",
+                explanation: "'since' specifies start of continuous action prior to past event (found one)."
+            },
+            {
+                id: 15,
+                question: "The kids ____ video games for three hours when their mother told them to stop.",
+                options: [
+                    { key: "A", text: "had been playing" },
+                    { key: "B", text: "have been playing" },
+                    { key: "C", text: "were played" },
+                    { key: "D", text: "had playing" }
+                ],
+                correct: "A",
+                explanation: "'had been playing' highlights ongoing action leading up to the moment of intervention."
+            }
+        ];
+
+        // User Selection State
+        const userAnswers = {};
+
+        // DOM Loaded Init
+        document.addEventListener('DOMContentLoaded', () => {
+            setCurrentDate();
+            renderQuestions();
+            setupEventListeners();
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+        });
+
+        // Set Current Date
+        function setCurrentDate() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            document.getElementById('currentDateDisplay').textContent = today.toLocaleDateString('en-US', options);
+        }
+
+        // Render Questions
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 transition hover:shadow-md";
+                card.id = `qCard_${q.id}`;
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div class="relative">
+                            <input type="radio" id="q${q.id}_${opt.key}" name="question_${q.id}" value="${opt.key}" class="custom-radio hidden" onchange="selectOption(${q.id}, '${opt.key}')">
+                            <label for="q${q.id}_${opt.key}" class="flex items-center p-3.5 rounded-xl border-2 border-slate-200 cursor-pointer transition hover:border-brand-300 text-slate-700 text-sm sm:text-base">
+                                <span class="radio-circle w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mr-3 flex-shrink-0 transition"></span>
+                                <span class="font-bold mr-2 text-brand-700">${opt.key}.</span>
+                                <span>${escapeHTML(opt.text)}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="bg-brand-100 text-brand-800 text-xs font-bold px-3 py-1 rounded-full">Question ${idx + 1} of 15</span>
+                            <span id="badge_${q.id}" class="hidden text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500">
+                                <i class="fa-solid fa-check mr-1"></i>Answered
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-slate-800 text-base sm:text-lg font-semibold mb-4">${idx + 1}. ${escapeHTML(q.question)}</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        ${optionsHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Event listener setups
+        function setupEventListeners() {
+            document.getElementById('studentName').addEventListener('input', checkFormState);
+        }
+
+        // Option Selection Handler
+        function selectOption(qId, selectedKey) {
+            userAnswers[qId] = selectedKey;
+
+            // Mark question visually
+            const badge = document.getElementById(`badge_${qId}`);
+            if (badge) {
+                badge.classList.remove('hidden');
+                badge.className = "text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 flex items-center";
+            }
+
+            updateProgress();
+            checkFormState();
+        }
+
+        // Progress Calculation & UI Update
+        function updateProgress() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const totalCount = questionsData.length;
+            const percentage = Math.round((answeredCount / totalCount) * 100);
+
+            document.getElementById('progressText').textContent = `${answeredCount} / ${totalCount} Answered`;
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('progressPercent').textContent = `${percentage}%`;
+        }
+
+        // Check if conditions to show results are met
+        function checkFormState() {
+            const name = document.getElementById('studentName').value.trim();
+            const answeredCount = Object.keys(userAnswers).length;
+            const isComplete = name.length > 0 && answeredCount === questionsData.length;
+
+            const lockIcon = document.getElementById('btnLockIcon');
+            if (isComplete) {
+                lockIcon.className = "fa-solid fa-lock-open text-amber-300";
+            } else {
+                lockIcon.className = "fa-solid fa-lock";
+            }
+        }
+
+        // Attempt to View Results
+        function attemptShowResults() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const answeredCount = Object.keys(userAnswers).length;
+
+            if (!studentName) {
+                showWarning("Please enter your Student Name at the top before submitting.");
+                document.getElementById('studentName').focus();
+                return;
+            }
+
+            if (answeredCount < questionsData.length) {
+                const missing = questionsData.length - answeredCount;
+                showWarning(`You still have ${missing} unanswered question(s). Please complete all questions.`);
+                
+                // Scroll to first unanswered question
+                for (let q of questionsData) {
+                    if (!userAnswers[q.id]) {
+                        const elem = document.getElementById(`qCard_${q.id}`);
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        break;
+                    }
+                }
+                return;
+            }
+
+            dismissWarning();
+            calculateAndDisplayResults(studentName);
+        }
+
+        // Calculate Score and Display Results Section
+        function calculateAndDisplayResults(studentName) {
+            let correctCount = 0;
+
+            questionsData.forEach(q => {
+                if (userAnswers[q.id] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const percentage = Math.round((correctCount / questionsData.length) * 100);
+
+            // Populate Summary
+            document.getElementById('resStudentName').textContent = studentName;
+            document.getElementById('resDate').textContent = document.getElementById('currentDateDisplay').textContent;
+            document.getElementById('resCorrectCount').textContent = `${correctCount} / ${questionsData.length}`;
+            document.getElementById('resPercentage').textContent = `${percentage}%`;
+
+            // Performance Badge Logic
+            const perfElem = document.getElementById('resPerformance');
+            if (percentage >= 90) {
+                perfElem.textContent = "Excellent 🌟";
+                perfElem.className = "text-2xl font-extrabold text-emerald-600 mt-1";
+            } else if (percentage >= 70) {
+                perfElem.textContent = "Good Job 👍";
+                perfElem.className = "text-2xl font-extrabold text-brand-600 mt-1";
+            } else if (percentage >= 50) {
+                perfElem.textContent = "Needs Review 📚";
+                perfElem.className = "text-2xl font-extrabold text-amber-600 mt-1";
+            } else {
+                perfElem.textContent = "Keep Practicing 💪";
+                perfElem.className = "text-2xl font-extrabold text-rose-600 mt-1";
+            }
+
+            // Generate Breakdown Cards
+            const breakdownContainer = document.getElementById('answerBreakdownContainer');
+            breakdownContainer.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const userChoice = userAnswers[q.id];
+                const isCorrect = userChoice === q.correct;
+
+                const userOptObj = q.options.find(o => o.key === userChoice);
+                const correctOptObj = q.options.find(o => o.key === q.correct);
+
+                const item = document.createElement('div');
+                item.className = `p-4 sm:p-5 rounded-xl border ${isCorrect ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'} transition`;
+
+                item.innerHTML = `
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                        <span class="font-bold text-slate-800 text-sm sm:text-base">Q${idx + 1}: ${escapeHTML(q.question)}</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold flex items-center space-x-1 ${isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                            <i class="fa-solid ${isCorrect ? 'fa-circle-check text-emerald-600' : 'fa-circle-xmark text-rose-600'}"></i>
+                            <span>${isCorrect ? 'Correct' : 'Incorrect'}</span>
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm my-2">
+                        <div class="p-2.5 rounded-lg ${isCorrect ? 'bg-emerald-100/60 text-emerald-900' : 'bg-rose-100/60 text-rose-900'}">
+                            <strong>Your Answer:</strong> (${userChoice}) ${escapeHTML(userOptObj ? userOptObj.text : '')}
+                        </div>
+                        ${!isCorrect ? `
+                            <div class="p-2.5 rounded-lg bg-emerald-100/60 text-emerald-900">
+                                <strong>Correct Answer:</strong> (${q.correct}) ${escapeHTML(correctOptObj ? correctOptObj.text : '')}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-2 italic">
+                        <i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i>
+                        ${escapeHTML(q.explanation)}
+                    </p>
+                `;
+
+                breakdownContainer.appendChild(item);
+            });
+
+            // Unlock and scroll to results section
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Disable submit button after completion
+            document.getElementById('checkAnswersBtn').classList.add('opacity-50', 'cursor-not-allowed');
+            document.getElementById('checkAnswersBtn').innerHTML = `<i class="fa-solid fa-circle-check"></i><span>Results Generated</span>`;
+            document.getElementById('checkAnswersBtn').onclick = null;
+        }
+
+        // Action 1: Send Answers via Email
+        function sendEmailResults() {
+            const studentName = document.getElementById('studentName').value.trim() || "Student";
+            const dateStr = document.getElementById('currentDateDisplay').textContent;
+            const recipient = "Danielenglishclasses23@gmail.com";
+            
+            let correctCount = 0;
+            let summaryLines = [];
+
+            questionsData.forEach((q) => {
+                const choice = userAnswers[q.id] || "N/A";
+                const isCorrect = choice === q.correct;
+                if (isCorrect) correctCount++;
+                const symbol = isCorrect ? '✅' : '❌';
+                summaryLines.push(`Q${q.id}: ${choice} ${symbol}`);
+            });
+
+            const scoreStr = `${correctCount}/${questionsData.length} (${Math.round((correctCount/questionsData.length)*100)}%)`;
+            const subject = encodeURIComponent(`Past Perfect Continuous Test - ${studentName}`);
+            
+            const bodyText = `English Family - Past Perfect Continuous Assessment Result\n` +
+                             `-----------------------------------------------------\n` +
+                             `Student Name: ${studentName}\n` +
+                             `Date: ${dateStr}\n` +
+                             `Score: ${scoreStr}\n\n` +
+                             `Answer Summary:\n` +
+                             summaryLines.join("\n") + `\n\n` +
+                             `Sent via English Family Interactive Test Portal.`;
+
+            const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+            window.location.href = mailtoUrl;
+        }
+
+        // Action 2: Copy Answers to Clipboard (Compact letter + symbol format)
+        function copyAnswersToClipboard() {
+            const studentName = document.getElementById('studentName').value.trim() || "Student";
+            
+            let answersCompact = [];
+            questionsData.forEach((q) => {
+                const choice = userAnswers[q.id] || "-";
+                const isCorrect = choice === q.correct;
+                const symbol = isCorrect ? '✅' : '❌';
+                answersCompact.push(`Q${q.id}: ${choice} ${symbol}`);
+            });
+
+            const copyFormattedText = `${studentName} - Past Perfect Continuous Test\n` + answersCompact.join(" | ");
+
+            // Execute copy fallback compatible with restricted environments
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = copyFormattedText;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("Answers copied to clipboard!");
+            } catch (err) {
+                showToast("Failed to copy automatically.");
+            } finally {
+                document.body.removeChild(tempTextArea);
+            }
+        }
+
+        // Warning Display Helpers
+        function showWarning(msg) {
+            const banner = document.getElementById('warningBanner');
+            document.getElementById('warningText').textContent = msg;
+            banner.classList.remove('hidden');
+        }
+
+        function dismissWarning() {
+            document.getElementById('warningBanner').classList.add('hidden');
+        }
+
+        // Toast Notification Helper
+        function showToast(message) {
+            const toast = document.getElementById('copyNotification');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Helper: HTML Escaping
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+    </script>
+</body>
+</html>
